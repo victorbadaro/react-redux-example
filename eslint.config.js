@@ -30,7 +30,13 @@ export default tseslint.config(
 			'jsx-quotes': ['error', 'prefer-double'],
 			semi: ['error', 'always'],
 			'comma-dangle': ['error', 'never'],
-			'@typescript-eslint/no-require-imports': 'off'
+			'@typescript-eslint/no-require-imports': 'off',
+			'@typescript-eslint/no-empty-object-type': [
+				'error',
+				{
+					allowInterfaces: 'with-single-extends'
+				}
+			]
 		}
 	}
 );
