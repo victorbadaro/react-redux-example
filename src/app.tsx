@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Header } from './components/header';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './components/ui/table';
+import { UsersList } from './components/users-list';
 
 const usersData = [
 	{ id: 1, name: 'Victor Badaró', email: 'victor.badaro@fatec.sp.gov.br' },
@@ -19,27 +19,7 @@ export function App() {
 			<main className="container mx-auto">
 				<div className="flex flex-col gap-4">
 					<h1 className="text-2xl font-semibold">Users</h1>
-
-					<div className="border border-zinc-700 rounded-lg overflow-hidden">
-						<Table className="text-zinc-400">
-							<TableHeader className="bg-zinc-800">
-								<TableRow className="border-zinc-700 hover:bg-zinc-800">
-									<TableHead className="text-zinc-100">ID</TableHead>
-									<TableHead className="text-zinc-100">Full name</TableHead>
-									<TableHead className="text-zinc-100">E-Mail</TableHead>
-								</TableRow>
-							</TableHeader>
-							<TableBody>
-								{users.map((user) => (
-									<TableRow key={user.id} className="border-zinc-700 hover:bg-zinc-800 hover:text-zinc-100">
-										<TableCell>{user.id}</TableCell>
-										<TableCell>{user.name}</TableCell>
-										<TableCell>{user.email}</TableCell>
-									</TableRow>
-								))}
-							</TableBody>
-						</Table>
-					</div>
+					<UsersList users={users} />
 				</div>
 			</main>
 		</div>
