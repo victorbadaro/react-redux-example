@@ -2,19 +2,18 @@ import { useState } from 'react';
 import { Header } from './components/header';
 import { UsersList } from './components/users-list';
 
-const usersData = [
-	{ id: 1, name: 'Victor Badaró', email: 'victor.badaro@fatec.sp.gov.br' },
-	{ id: 2, name: 'Miryam Santana', email: 'miryam.santana@fatec.sp.gov.br' },
-	{ id: 3, name: 'Lívia Rodrigues', email: 'livia.badaro@gmail.com' },
-	{ id: 4, name: 'Ana Laura Rodrigues', email: 'analaura.badaro@gmail.com' }
-];
+type User = {
+	id: number;
+	name: string;
+	email: string;
+}
 
 export function App() {
-	const [users] = useState(usersData);
+	const [users, setUsers] = useState<User[]>([]);
 
 	return (
 		<div className="space-y-8 min-h-screen bg-zinc-900 text-zinc-100">
-			<Header />
+			<Header users={users} setUsers={setUsers} />
 
 			<main className="container mx-auto">
 				<div className="flex flex-col gap-4">
