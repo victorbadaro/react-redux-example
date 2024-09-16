@@ -21,12 +21,16 @@ export default tseslint.config(
 			...reactHooks.configs.recommended.rules,
 			'react-refresh/only-export-components': [
 				'warn',
-				{ allowConstantExport: true }
+				{
+					allowConstantExport: true,
+					allowExportNames: ['buttonVariants']
+				}
 			],
 			quotes: ['error', 'single'],
 			'jsx-quotes': ['error', 'prefer-double'],
 			semi: ['error', 'always'],
-			'comma-dangle': ['error', 'never']
+			'comma-dangle': ['error', 'never'],
+			'@typescript-eslint/no-require-imports': 'off'
 		}
 	}
 );
