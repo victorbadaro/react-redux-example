@@ -1,4 +1,4 @@
-import { useUsers } from '@/hooks/useUsers';
+import { useUsers } from '@/hooks/use-users';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
 
 export function UsersList() {

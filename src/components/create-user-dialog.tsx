@@ -1,4 +1,4 @@
-import { useUsers } from '@/hooks/useUsers';
+import { useUsers } from '@/hooks/use-users';
 import { FormEvent, useState } from 'react';
 import { Button } from './ui/button';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
