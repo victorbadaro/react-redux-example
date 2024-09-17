@@ -1,15 +1,12 @@
-import { UserToBeUpdated } from '@/app';
+import { useUsers } from '@/hooks/useUsers';
 import { FormEvent, useState } from 'react';
 import { Button } from './ui/button';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 
-interface CreateUserDialogProps {
-	addUser: (user: UserToBeUpdated) => void;
-}
-
-export function CreateUserDialog({ addUser }: CreateUserDialogProps) {
+export function CreateUserDialog() {
+	const { addUser } = useUsers();
 	const [isOpen, setIsOpen] = useState(false);
 
 	function handleFormSubmit(event: FormEvent<HTMLFormElement>) {

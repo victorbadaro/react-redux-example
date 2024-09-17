@@ -1,16 +1,9 @@
+import { useUsers } from '@/hooks/useUsers';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
 
-type User = {
-	id: number;
-	name: string;
-	email: string;
-}
+export function UsersList() {
+	const { users } = useUsers();
 
-interface UsersListProps {
-	users: User[];
-}
-
-export function UsersList({ users }: UsersListProps) {
 	return (
 		<div className="border border-zinc-700 rounded-lg overflow-hidden">
 			<Table className="text-zinc-400">
