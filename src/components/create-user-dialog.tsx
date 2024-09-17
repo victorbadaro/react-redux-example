@@ -1,21 +1,15 @@
-import { Dispatch, FormEvent, SetStateAction, useState } from 'react';
+import { UserToBeUpdated } from '@/app';
+import { FormEvent, useState } from 'react';
 import { Button } from './ui/button';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 
-type User = {
-	id: number;
-	name: string;
-	email: string;
-}
-
 interface CreateUserDialogProps {
-	users: User[];
-	setUsers: Dispatch<SetStateAction<User[]>>;
+	addUser: (user: UserToBeUpdated) => void;
 }
 
-export function CreateUserDialog({ users, setUsers }: CreateUserDialogProps) {
+export function CreateUserDialog({ addUser }: CreateUserDialogProps) {
 	const [isOpen, setIsOpen] = useState(false);
 
 	function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
@@ -30,14 +24,7 @@ export function CreateUserDialog({ users, setUsers }: CreateUserDialogProps) {
 			return;
 		}
 
-		setUsers([
-			...users,
-			{
-				id: users.length + 1,
-				name,
-				email
-			}
-		]);
+		addUser({ name, email });
 
 		form.reset();
 		setIsOpen(false);
@@ -68,7 +55,7 @@ export function CreateUserDialog({ users, setUsers }: CreateUserDialogProps) {
 
 				<DialogFooter>
 					<DialogClose asChild>
-						<Button type="reset" variant="secondary">Close</Button>
+						<Button type="reset" form="create-user-form" variant="secondary">Close</Button>
 					</DialogClose>
 
 					<Button type="submit" form="create-user-form">Save</Button>
