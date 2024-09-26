@@ -4,7 +4,7 @@ import { UsersList } from './components/users-list';
 import { RootState } from './store';
 
 export function App() {
-	const users = useSelector((state: RootState) => state.users.users);
+	const users = useSelector((state: RootState) => state.users);
 
 	return (
 		<div className="space-y-8 min-h-screen bg-zinc-900 text-zinc-100">

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './ui/table';
 
 export function UsersList() {
-	const users = useSelector((state: RootState) => state.users.users);
+	const users = useSelector((state: RootState) => state.users);
 
 	return (
 		<div className="border border-zinc-700 rounded-lg overflow-hidden">

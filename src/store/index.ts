@@ -1,8 +1,8 @@
 import { combineReducers, createStore } from 'redux';
-import { userReducer } from './users/reducer';
+import { usersReducer } from './users/reducer';
 
 const rootReducer = combineReducers({
-	users: userReducer
+	users: usersReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

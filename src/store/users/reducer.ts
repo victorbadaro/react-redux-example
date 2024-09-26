@@ -1,25 +1,18 @@
 import { ActionTypes, ADD_USER, User } from './types';
 
-interface UsersState {
-	users: User[];
-}
+type UsersState = User[];
 
-const initialState: UsersState = {
-	users: []
-};
+const initialState: UsersState = [];
 
-export function userReducer(state = initialState, action: ActionTypes): UsersState {
+export function usersReducer(state = initialState, action: ActionTypes): UsersState {
 	switch (action.type) {
 		case ADD_USER: {
 			const newUser: User = {
 				...action.payload,
-				id: state.users.length + 1
+				id: state.length + 1
 			};
 
-			return {
-				...state,
-				users: [...state.users, newUser]
-			};
+			return [...state, newUser];
 		}
 		default:
 			return state;
