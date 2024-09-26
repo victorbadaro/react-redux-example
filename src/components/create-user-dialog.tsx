@@ -1,12 +1,13 @@
-import { useUsers } from '@/hooks/use-users';
+import { addUser } from '@/store/users/actions';
 import { FormEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Button } from './ui/button';
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
 
 export function CreateUserDialog() {
-	const { addUser } = useUsers();
+	const dispatch = useDispatch();
 	const [isOpen, setIsOpen] = useState(false);
 
 	function handleFormSubmit(event: FormEvent<HTMLFormElement>) {
@@ -21,7 +22,7 @@ export function CreateUserDialog() {
 			return;
 		}
 
-		addUser({ name, email });
+		dispatch(addUser({ name, email }));
 
 		form.reset();
 		setIsOpen(false);

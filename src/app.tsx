@@ -1,9 +1,10 @@
+import { useSelector } from 'react-redux';
 import { Header } from './components/header';
 import { UsersList } from './components/users-list';
-import { useUsers } from './hooks/use-users';
+import { RootState } from './store';
 
 export function App() {
-	const { users } = useUsers();
+	const users = useSelector((state: RootState) => state.users.users);
 
 	return (
 		<div className="space-y-8 min-h-screen bg-zinc-900 text-zinc-100">
